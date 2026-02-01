@@ -48,7 +48,7 @@ function getUsers() {
   const req = new Request(url, { method: 'get' });
   //return the Promise with the response object or a FetchError
   return fetch(req).then((res) => {
-    if (!response.ok) throw new FetchError('Could not fetch users', req, res);
+    if (!res.ok) throw new FetchError('Could not fetch users', req, res);
     return res.json();
   });
 }
@@ -58,7 +58,7 @@ function getUser(id) {
   const req = new Request(url, { method: 'get' });
   //return the Promise with the response object or a FetchError
   return fetch(req).then((res) => {
-    if (!response.ok) throw new FetchError('Could not fetch that user', req, res);
+    if (!res.ok) throw new FetchError('Could not fetch that user', req, res);
     return res.json();
   });
 }
@@ -68,7 +68,7 @@ function getTodos() {
   const req = new Request(url, { method: 'get' });
   //return the Promise with the response object or a FetchError
   return fetch(req).then((res) => {
-    if (!response.ok) throw new FetchError('Could not fetch todo list', req, res);
+    if (!res.ok) throw new FetchError('Could not fetch todo list', req, res);
     return res.json();
   });
 }
