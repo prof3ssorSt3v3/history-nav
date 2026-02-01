@@ -1,0 +1,70 @@
+:root {
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+header {
+  height: 3rem;
+  padding: 0 2rem;
+  background-color: hsl(220, 50%, 80%);
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+nav {
+  min-height: 2rem;
+  padding: 0 2rem;
+  background-color: hsl(220, 50%, 80%);
+  border-top: 1px solid hsl(220, 50%, 20%);
+  border-bottom: 1px solid hsl(220, 50%, 20%);
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  & a {
+    font-size: 1rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: hsl(220, 50%, 20%);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: hsl(220, 90%, 60%);
+    }
+  }
+}
+body.home nav [href='#home'],
+body.users nav [href='#users'],
+body.todos nav [href='#todos'] {
+  color: hsl(220, 90%, 60%);
+}
+main {
+  position: relative;
+  padding: 0 2rem;
+}
+.page {
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  inset: 0 0 auto 0;
+  transition: opacity 0.6s linear;
+  padding: 2rem;
+
+  &.current {
+    /* current page */
+    opacity: 1;
+    z-index: 10;
+  }
+}
