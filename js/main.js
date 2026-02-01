@@ -33,3 +33,42 @@ class NavEvent extends CustomEvent {
     });
   }
 }
+class FetchError extends Error {
+  constructor(msg, req, res) {
+    super(msg);
+    this.request = req;
+    this.response = res;
+    this.status = res.status;
+  }
+}
+
+function getUsers() {
+  const href = 'https://jsonplaceholder.typicode.com/users';
+  const url = new URL(href);
+  const req = new Request(url, { method: 'get' });
+  //return the Promise with the response object or a FetchError
+  return fetch(req).then((res) => {
+    if (!response.ok) throw new FetchError('Could not fetch users', req, res);
+    return res.json();
+  });
+}
+function getUser(id) {
+  const href = `https://jsonplaceholder.typicode.com/users/${id}`;
+  const url = new URL(href);
+  const req = new Request(url, { method: 'get' });
+  //return the Promise with the response object or a FetchError
+  return fetch(req).then((res) => {
+    if (!response.ok) throw new FetchError('Could not fetch that user', req, res);
+    return res.json();
+  });
+}
+function getTodos() {
+  let href = 'https://jsonplaceholder.typicode.com/todos';
+  const url = new URL(href);
+  const req = new Request(url, { method: 'get' });
+  //return the Promise with the response object or a FetchError
+  return fetch(req).then((res) => {
+    if (!response.ok) throw new FetchError('Could not fetch todo list', req, res);
+    return res.json();
+  });
+}
