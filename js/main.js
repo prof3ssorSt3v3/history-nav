@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', init);
 window.addEventListener('popstate', handlePop);
 const log = console.log;
-
+//REPO: https://github.com/prof3ssorSt3v3/history-nav
 function init() {
   addListeners();
+  handlePop();
 }
 function addListeners() {
   document.body.addEventListener('navevent', nav);
