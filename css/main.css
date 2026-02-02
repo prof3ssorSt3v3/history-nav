@@ -45,9 +45,9 @@ nav {
     }
   }
 }
-body.home nav [href='#home'],
-body.users nav [href='#users'],
-body.todos nav [href='#todos'] {
+body.home nav [href*='#home'],
+body.users nav [href*='#users'],
+body.todos nav [href*='#todos'] {
   color: hsl(220, 90%, 60%);
 }
 main {
